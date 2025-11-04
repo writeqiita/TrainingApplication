@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface TrainingRepository : JpaRepository<Training, Int> {
-    fun findByTrainingPart(trainingPart: Int): List<Training>
+    fun findByTrainingPartIn(trainingParts: List<Int> ): List<Training>
     fun findByTrainingNameContaining(trainingName: String): List<Training>
 }

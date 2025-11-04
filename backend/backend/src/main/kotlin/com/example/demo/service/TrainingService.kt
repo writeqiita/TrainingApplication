@@ -31,9 +31,7 @@ class TrainingService(
             if (parts.isEmpty()) trainingRepository.findAll()
             else {
                 val partNumbers = parts.map { partToNumber(it) }
-                trainingRepository.findAll().filter { training ->
-                    partNumbers.contains(training.trainingPart)
-                }
+                trainingRepository.findByTrainingPartIn(partNumbers)
             }
 
         if (availableTrainings.isEmpty()) {
